@@ -12,18 +12,19 @@
     <img src="{{ asset('images/RenderData.jpg') }}" alt="Imagen de fondo"
         class="absolute inset-0 h-full w-full object-cover z-0 blur-sm opacity-80">
 
-    <div class="relative min-h-screen flex flex-col items-center justify-center">
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 p-4 min-w-4/5 text-center">
-            <h1 class="text-frambuesa text-6xl mb-6 font-roboto font-bold">Buscá por localidad</h1>
+    <div class="relative min-h-screen flex flex-col items-center justify-center ">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 min-w-1/2 text-center bg-white opacity-80 rounded-lg">
+            <h1 class="text-frambuesa text-6xl my-2 font-roboto font-bold">AirHealth</h1>
+            <h2 class="text-frambuesa text-3xl mb-4 font-roboto font-bold">Analizá la calidad de aire en tu ciudad</h1>
         </div>
-        <form class="max-w-xl w-4/5" action="#" method="post">
+        <form class="max-w-xl w-4/5" action="" method="get">
             @csrf
 
             <div class="flex">
 
                 <label for="provincias" class="sr-only">Elige una provincia</label>
                 <select id="provincias"
-                    class=" bg-gray-700 border border-gray-600 text-white text-sm border-s-gray-700 border-s-2 rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-36 p-2.5 ">
+                    class=" bg-gray-700 border border-gray-600 text-white text-lg border-s-gray-700 border-s-2 rounded-l-lg focus:ring-blue-500 focus:border-blue-500 block w-36 p-2.5 ">
                     @php
                         $provincias_localidades = 
                         [
@@ -56,7 +57,7 @@
                     @endphp
                     @for ($i = 0; $i < count($provincias = array_keys($provincias_localidades)); $i++)
                     
-                        <option value="{{ $provincias_snake_case[$i] }}"
+                        <option value="{{ $provincias[$i] }}"
                         @if ($i == 0) 
                         selected
                         @endif
@@ -69,33 +70,18 @@
                 </select>
                 <label for="localidades" class="sr-only">Elige una localidad</label>
                 <select id="localidades"
-                    class="bg-gray-700 border border-gray-600 text-white text-sm border-s-gray-700 border-s-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                    class="bg-gray-700 border border-gray-600 text-white text-lg border-s-gray-700 border-s-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                     <option value="" selected disabled>Elige una localidad</option>
                     @foreach ($provincias_localidades['San Luis'] as $localidad)
-                    <option value="{{ $loop->iteration }}">{{ $localidad }}</option>
+                    <option value="{{ $localidad }}">{{ $localidad }}</option>
                     @endforeach
                 </select>
-                <button type="submit"
-                    class="text-white bg-frambuesa hover:bg-frambuesa_oscuro focus:ring-4 focus:outline-none focus:ring-frambuesa_oscuro font-medium rounded-r-lg text-sm px-4 py-2 text-xl">Search</button>
+                <a href="{{ url('/dashboard')}}">
+                    <button type="button"
+                        class="h-full text-white bg-frambuesa hover:bg-frambuesa_oscuro focus:ring-4 focus:outline-none focus:ring-frambuesa_oscuro font-medium rounded-r-lg text-sm px-4 py-2 text-xl">Buscar</button>
 
-            </div>
+                </a>
 
-
-            <label for="default-search"
-                class="mb-2 text-sm font-medium text-frambuesa sr-only dark:text-white">Search</label>
-            <div class="relative">
-                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none w-4/5">
-                    <svg class="w-4 h-4 text-frambuesa" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                    </svg>
-                </div>
-                <input type="search" id="default-search"
-                    class="block w-full p-4 ps-10 text-sm text-white border border-frambuesa_oscuro rounded-lg bg-gray-700 focus:ring-frambuesa focus:border-frambuesa opacity-80 text-xl"
-                    placeholder="Search Mockups, Logos..." required />
-                <button type="submit"
-                    class="text-white absolute end-2.5 bottom-2.5 bg-frambuesa hover:bg-frambuesa_oscuro focus:ring-4 focus:outline-none focus:ring-frambuesa_oscuro font-medium rounded-lg text-sm px-4 py-2 text-xl">Search</button>
             </div>
 
         </form>
