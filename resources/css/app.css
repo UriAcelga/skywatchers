@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -8,4 +9,15 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-ciruela: #4d1d4c;
+    --color-ciruela_oscuro: #351434;
+    --color-magenta: #9D1D54;
+    --color-magenta_oscuro: #681338;
+    --color-frambuesa: #E5004E;
+    --color-frambuesa_oscuro: #B4003E;
+}
+
+
+@theme {
+    --font-roboto: "Roboto", "sans-serif";
 }
