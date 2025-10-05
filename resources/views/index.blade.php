@@ -11,11 +11,14 @@
 <body>
     <img src="{{ asset('images/RenderData.jpg') }}" alt="Imagen de fondo"
         class="absolute inset-0 h-full w-full object-cover z-0 blur-sm opacity-80">
+    <div class="absolute top-0 left-0 w-1/6 mt-8 ml-8 bg-gray-600/60 rounded-lg p-4">
+        <img src="{{ asset('images/logo_oscuro.png') }}" alt="logo" class="opacity-100">
+    </div>
 
     <div class="relative min-h-screen flex flex-col items-center justify-center ">
         <div class="absolute top-1/4 left-1/2 -translate-x-1/2 min-w-1/2 text-center bg-white opacity-80 rounded-lg">
             <h1 class="text-frambuesa text-6xl my-2 font-roboto font-bold">AirHealth</h1>
-            <h2 class="text-frambuesa text-3xl mb-4 font-roboto font-bold">Analizá la calidad de aire en tu ciudad</h1>
+            <h2 class="text-orange-600 text-3xl mb-4 font-roboto font-bold">Analize air quality in your city</h1>
         </div>
         <form class="max-w-xl w-4/5" action="" method="get">
             @csrf
@@ -71,14 +74,14 @@
                 <label for="localidades" class="sr-only">Elige una localidad</label>
                 <select id="localidades"
                     class="bg-gray-700 border border-gray-600 text-white text-lg border-s-gray-700 border-s-2 focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                    <option value="" selected disabled>Elige una localidad</option>
+                    <option value="" selected disabled>Select a city</option>
                     @foreach ($provincias_localidades['San Luis'] as $localidad)
                     <option value="{{ $localidad }}">{{ $localidad }}</option>
                     @endforeach
                 </select>
                 <a href="{{ url('/dashboard')}}">
                     <button type="button"
-                        class="h-full text-white bg-frambuesa hover:bg-frambuesa_oscuro focus:ring-4 focus:outline-none focus:ring-frambuesa_oscuro font-medium rounded-r-lg text-sm px-4 py-2 text-xl">Buscar</button>
+                        class="h-full text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange'700 font-medium rounded-r-lg text-sm px-4 py-2 text-xl">Search</button>
 
                 </a>
 
@@ -88,7 +91,7 @@
 
         <footer>
             <p class="text-white mx-auto absolute bottom-0 mb-8 -translate-x-1/2">SkyWatchers_ - NASA Space Apps
-                Challenge 2025 @ Todos los derechos reservados</p>
+                Challenge 2025 @ All rights reserved</p>
         </footer>
     </div>
     </div>
